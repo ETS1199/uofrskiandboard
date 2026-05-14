@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UofR Ski & Board Club</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">UofR Ski &amp; Board</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#sponsors">Sponsors</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-sub">University of Regina</p>
+      <h1 class="hero-title">Ski &amp; Snowboard Club</h1>
+      <p class="hero-desc"></p>
+      <div class="hero-actions">
+        <a href="#events" class="btn btn-primary">Upcoming Trips</a>
+        <a href="#contact" class="btn btn-outline">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Who We Are</span>
+        <h2 class="section-title">About the Club</h2>
+      </div>
+      <div class="about-text">
+        <p>The UofR Ski &amp; Snowboard Club is a student-run organization open to all University of Regina students and their friends. Whether you're clipping into bindings for the first time or an expert, there's a place for you here.</p>
+        <p>We organize group trips to local and regional ski hills, coordinate beginner lessons, negotiate club-rate lift tickets, and host social events throughout the season.</p>
+       </div>
+    </div>
+  </section>
+
+  <!-- ===== EVENTS ===== -->
+  <section class="section" id="events">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Get on the Hill</span>
+        <h2 class="section-title">Upcoming Events</h2>
+      </div>
+      <div class="events-grid">
+
+        <div class="event-card featured">
+          <div class="event-date">
+            <span class="event-month">Jan</span>
+            <span class="event-day">18</span>
+          </div>
+          <div class="event-info">
+            <span class="event-badge">Featured</span>
+            <h3>featured event</h3>
+            <p>information about the event</p>
+            <div class="event-meta">
+              <span>Location</span>
+              <span>time</span>
+              <span>extra information</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date">
+            <span class="event-month">Feb</span>
+            <span class="event-day">01</span>
+          </div>
+          <div class="event-info">
+            <h3>Regular event</h3>
+            <p>information about the event</p>
+            <div class="event-meta">
+              <span>location</span>
+              <span>time</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date">
+            <span class="event-month">Feb</span>
+            <span class="event-day">22</span>
+          </div>
+          <div class="event-info">
+            <h3>More events</h3>
+            <p>information</p>
+            <div class="event-meta">
+              <span>location</span>
+              <span>time</span>
+              <span>extra information</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Memories</span>
+        <h2 class="section-title">Photo Gallery</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item tall">
+          <div class="gallery-placeholder"><span>Add photo</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder"><span>Add photo</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder"><span>Add photo</span></div>
+        </div>
+        <div class="gallery-item wide">
+          <div class="gallery-placeholder"><span>Add photo</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder"><span>Add photo</span></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder"><span>Add photo</span></div>
+        </div>
+      </div>
+      <p class="gallery-note">Photos from past seasons and or ski club member photos</p>
+    </div>
+  </section>
+
+  <!-- ===== SPONSORS & CONTACT (stacked, same column) ===== -->
+  <section class="section section-sponsors-contact">
+    <div class="container">
+      <div class="sponsors-contact-stack">
+        <div class="sponsors-block" id="sponsors">
+          <header class="section-header">
+            <span class="section-tag">Our Partners</span>
+            <h2 class="section-title">Sponsors &amp; Partners</h2>
+          </header>
+          <p class="sponsors-intro">We're grateful to the businesses and organizations that make our trips possible. Interested in sponsoring the club? <a href="mailto:uofrskiandboard@gmail.com">Get in touch.</a></p>
+          <div class="sponsors-grid">
+            <div class="sponsor-logo"><span>Ski hill (Maybe Mission or Louise)</span></div>
+            <div class="sponsor-logo"><span>Maybe UofR?</span></div>
+            <div class="sponsor-logo"><span>Local Ski Shop sponsor?</span></div>
+            <div class="sponsor-logo"><span>Some company logo</span></div>
+            <div class="sponsor-logo"><span>Come compay logo</span></div>
+          </div>
+        </div>
+        <div class="contact-block" id="contact" aria-labelledby="contact-heading">
+          <header class="section-header section-header--contact">
+            <span class="section-tag">Reach out</span>
+            <h2 class="section-title" id="contact-heading">Contact</h2>
+          </header>
+          <div class="contact-simple" role="list">
+            <div class="contact-item" role="listitem">
+              <span class="contact-label">Email</span>
+              <a href="mailto:uofrskiandboard@gmail.com">uofrskiandboard@gmail.com</a>
+            </div>
+            <div class="contact-item" role="listitem">
+              <span class="contact-label">Instagram</span>
+              <a href="https://www.instagram.com/uofrskiandboard/" target="_blank" rel="noopener noreferrer">uofrskiandboard</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">UofR Ski &amp; Board</span>
+        <p>University of Regina — Regina, SK</p>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#events">Events</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 UofR Ski &amp; Snowboard Club. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
