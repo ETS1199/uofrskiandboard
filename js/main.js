@@ -1,7 +1,7 @@
-// Navbar scroll effect
-const navbar = document.getElementById('navbar');
+// Header background once scrolled off the hero banner
+const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
+  header.classList.toggle('scrolled', window.scrollY > 40);
 });
 
 // Mobile nav toggle
@@ -9,8 +9,8 @@ const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 
 navToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-  const isOpen = navLinks.classList.contains('open');
+  const isOpen = navLinks.classList.toggle('open');
+  header.classList.toggle('menu-open', isOpen);
   navToggle.setAttribute('aria-expanded', isOpen);
 });
 
@@ -18,10 +18,12 @@ navToggle.addEventListener('click', () => {
 navLinks.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     navLinks.classList.remove('open');
+    header.classList.remove('menu-open');
+    navToggle.setAttribute('aria-expanded', 'false');
   });
 });
 
-// Active nav link on scroll (includes #sponsors / #contact inside one section)
+// Active nav link on scroll
 const scrollNavTargets = document.querySelectorAll(
   '#about, #events, #gallery, #sponsors, #contact'
 );
@@ -41,7 +43,7 @@ scrollNavTargets.forEach(el => observer.observe(el));
 
 // Scroll-triggered fade-in
 const fadeEls = document.querySelectorAll(
-  '.event-card, .gallery-item, .sponsor-logo, .contact-item'
+  '.offering, .event, .gallery-item, .sponsor-logo, .section-head, .about-body'
 );
 
 const fadeObserver = new IntersectionObserver((entries) => {
@@ -58,20 +60,19 @@ fadeEls.forEach(el => {
   fadeObserver.observe(el);
 });
 
-// Add fade-in CSS dynamically
+// Fade-in styles, skipped when the viewer prefers reduced motion
 const style = document.createElement('style');
 style.textContent = `
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-  .fade-in.visible {
-    opacity: 1;
-    transform: none;
-  }
-  .nav-links a.active {
-    color: #4f9cf9;
+  @media (prefers-reduced-motion: no-preference) {
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
   }
 `;
 document.head.appendChild(style);
