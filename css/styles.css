@@ -479,6 +479,20 @@ ul { list-style: none; }
 
 .recap-grid .ph { aspect-ratio: 9 / 16; }
 
+/* ===== RECAPS PHOTOS ===== */
+.photo-grid {
+  columns: 3;
+  column-gap: 0.75rem;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.75rem;
+  break-inside: avoid;
+  background: var(--tint);
+}
+
 /* ===== FOOTER ===== */
 .ftr {
   background: var(--cream);
@@ -599,6 +613,7 @@ ul { list-style: none; }
 @media (max-width: 900px) {
   .logo-grid { grid-template-columns: repeat(2, 1fr); }
   .recap-grid { grid-template-columns: repeat(2, 1fr); }
+  .photo-grid { columns: 2; }
   .trio { grid-template-columns: 1fr; justify-items: center; }
   .trio > * { max-width: 420px; width: 100%; }
 }
@@ -650,5 +665,6 @@ ul { list-style: none; }
 
 @media (max-width: 520px) {
   .logo-grid { grid-template-columns: 1fr; }
+  .photo-grid { columns: 1; }
   .cal-day { padding: 0.3rem; font-size: 0.8125rem; }
 }
