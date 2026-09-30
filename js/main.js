@@ -9,9 +9,56 @@ if (toggle && nav) {
   });
 }
 
+// Homepage calendar
+const calDays = document.getElementById('calDays');
+
+if (calDays) {
+  const title = document.getElementById('calTitle');
+  const today = new Date();
+  let view = new Date(today.getFullYear(), today.getMonth(), 1);
+
+  const render = () => {
+    const year = view.getFullYear();
+    const month = view.getMonth();
+    const lead = new Date(year, month, 1).getDay();
+    const count = new Date(year, month + 1, 0).getDate();
+
+    title.textContent = view.toLocaleString('en-CA', { month: 'long', year: 'numeric' });
+    calDays.innerHTML = '';
+
+    for (let i = 0; i < lead; i++) {
+      const blank = document.createElement('div');
+      blank.className = 'cal-day cal-day--empty';
+      calDays.appendChild(blank);
+    }
+
+    for (let d = 1; d <= count; d++) {
+      const cell = document.createElement('div');
+      cell.className = 'cal-day';
+      if (year === today.getFullYear() && month === today.getMonth() && d === today.getDate()) {
+        cell.classList.add('cal-day--today');
+      }
+      cell.innerHTML = `<span>${d}</span>`;
+      calDays.appendChild(cell);
+    }
+  };
+
+  document.getElementById('calPrev').addEventListener('click', () => {
+    view.setMonth(view.getMonth() - 1);
+    render();
+  });
+
+  document.getElementById('calNext').addEventListener('click', () => {
+    view.setMonth(view.getMonth() + 1);
+    render();
+  });
+
+  render();
+}
+
 // Scroll-triggered fade-in
 const fadeEls = document.querySelectorAll(
-  '.hero, .pitch, .split, .trio, .events, .exec-group, .logo-card, .recap-grid .ph, .faq'
+  '.hero, .pitch, .split, .trio, .cal, .exec-group, .logo-card, .recap-grid .ph, .faq'
 );
 
 const fadeObserver = new IntersectionObserver((entries) => {

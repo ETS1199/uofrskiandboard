@@ -85,33 +85,17 @@
   <section class="band band--light" id="calendar">
     <div class="wrap wrap--narrow">
       <h2 class="d1 upper center" style="margin-bottom: clamp(2rem, 4vw, 3rem);">calendar</h2>
-      <ul class="events">
-        <li class="event event--featured">
-          <div class="event-date"><span class="event-month">jan</span><span class="event-day">18</span></div>
-          <div class="event-info">
-            <span class="event-badge">featured</span>
-            <h3>featured event</h3>
-            <p>information about the event</p>
-            <div class="event-meta"><span>location</span><span>time</span><span>extra information</span></div>
-          </div>
-        </li>
-        <li class="event">
-          <div class="event-date"><span class="event-month">feb</span><span class="event-day">01</span></div>
-          <div class="event-info">
-            <h3>regular event</h3>
-            <p>information about the event</p>
-            <div class="event-meta"><span>location</span><span>time</span></div>
-          </div>
-        </li>
-        <li class="event">
-          <div class="event-date"><span class="event-month">feb</span><span class="event-day">22</span></div>
-          <div class="event-info">
-            <h3>more events</h3>
-            <p>information</p>
-            <div class="event-meta"><span>location</span><span>time</span><span>extra information</span></div>
-          </div>
-        </li>
-      </ul>
+      <div class="cal" id="cal">
+        <div class="cal-head">
+          <button class="cal-arrow" id="calPrev" type="button" aria-label="Previous month">&larr;</button>
+          <h3 class="cal-title" id="calTitle" aria-live="polite"></h3>
+          <button class="cal-arrow" id="calNext" type="button" aria-label="Next month">&rarr;</button>
+        </div>
+        <div class="cal-grid cal-dow" aria-hidden="true">
+          <span>sun</span><span>mon</span><span>tue</span><span>wed</span><span>thu</span><span>fri</span><span>sat</span>
+        </div>
+        <div class="cal-grid cal-days" id="calDays"></div>
+      </div>
       <p class="center" style="margin-top: 2rem;"><a class="link-ul" href="events.html">see all events and trips -&gt;</a></p>
     </div>
   </section>
