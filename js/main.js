@@ -90,7 +90,7 @@ if (calDays) {
 
 // Scroll-triggered fade-in
 const fadeEls = document.querySelectorAll(
-  '.hero, .pitch, .split, .trio, .cal, .exec-group, .logo-card, .recap-grid .ph, .photo-grid img, .faq'
+  '.hero, .pitch, .split, .trio, .cal, .exec-group, .logo-card, .photo-grid img, .faq'
 );
 
 const fadeObserver = new IntersectionObserver((entries) => {

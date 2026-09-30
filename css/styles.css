@@ -501,15 +501,6 @@ ul { list-style: none; }
 
 .band--light .logo-card p { color: var(--on-light-soft); }
 
-/* ===== RECAPS GRID ===== */
-.recap-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.75rem;
-}
-
-.recap-grid .ph { aspect-ratio: 9 / 16; }
-
 /* ===== RECAPS PHOTOS ===== */
 .photo-grid {
   columns: 3;
@@ -643,7 +634,6 @@ ul { list-style: none; }
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
   .logo-grid { grid-template-columns: repeat(2, 1fr); }
-  .recap-grid { grid-template-columns: repeat(2, 1fr); }
   .photo-grid { columns: 2; }
   .trio { grid-template-columns: 1fr; justify-items: center; }
   .trio > * { max-width: 420px; width: 100%; }
