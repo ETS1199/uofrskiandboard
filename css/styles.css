@@ -255,6 +255,13 @@ ul { list-style: none; }
   z-index: -1;
 }
 
+/* hide the iOS play-button overlay; the video is started from JS instead */
+.hero-video::-webkit-media-controls,
+.hero-video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-video { display: none; }
 }

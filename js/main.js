@@ -15,7 +15,16 @@ const heroVideo = document.querySelector('.hero-video');
 
 if (heroVideo) {
   heroVideo.muted = true;
-  const playHero = () => heroVideo.play().catch(() => {});
+
+  // iOS only lets play() through on touchend/click (not touchstart), and only
+  // delivers taps on plain page areas to elements that have a listener.
+  const tapEvents = ['touchend', 'pointerup', 'click', 'keydown'];
+  const tapTargets = [document, heroVideo.closest('.hero-bg')];
+
+  const playHero = () =>
+    heroVideo.play().then(() => {
+      tapTargets.forEach(t => tapEvents.forEach(evt => t.removeEventListener(evt, playHero)));
+    }).catch(() => {});
 
   heroVideo.addEventListener('ended', () => {
     heroVideo.currentTime = 0;
@@ -26,10 +35,8 @@ if (heroVideo) {
     if (!document.hidden) playHero();
   });
 
-  // autoplay blocked until the visitor interacts: start on the first tap
-  ['touchstart', 'click'].forEach(evt =>
-    document.addEventListener(evt, playHero, { once: true, passive: true })
-  );
+  // autoplay blocked (e.g. Low Power Mode): start on the visitor's first tap
+  tapTargets.forEach(t => tapEvents.forEach(evt => t.addEventListener(evt, playHero, { passive: true })));
 
   playHero();
 }
