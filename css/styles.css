@@ -531,7 +531,16 @@ ul { list-style: none; }
 
 .ftr-mark {
   grid-column: 2;
-  width: clamp(150px, 18vw, 210px);
+  width: clamp(110px, 12vw, 150px);
+}
+
+/* the logo is a circle on a square image: clip off the corners */
+.ftr-logo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .ftr-social {
