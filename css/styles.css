@@ -230,9 +230,33 @@ ul { list-style: none; }
   align-items: flex-end;
   padding: clamp(3rem, 8vw, 6rem) 0;
   background:
-    linear-gradient(to bottom, rgba(13, 43, 31, 0) 45%, rgba(13, 43, 31, 0.75) 100%),
     url('../images/home_screen/hero.jpg') 43% 40% / cover no-repeat,
     var(--dark);
+}
+
+.hero-bg { position: relative; overflow: hidden; isolation: isolate; }
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 40%;
+  z-index: -2;
+}
+
+/* keeps the gold wordmark readable over the moving footage */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(13, 43, 31, 0) 45%, rgba(13, 43, 31, 0.75) 100%);
+  z-index: -1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video { display: none; }
 }
 
 .hero-bg .wrap { width: 100%; }
