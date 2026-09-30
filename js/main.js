@@ -9,6 +9,31 @@ if (toggle && nav) {
   });
 }
 
+// Homepage background video — phones can drop autoplay or stall at the loop
+// point (iOS Low Power Mode, Android data saver), so nudge it back into play.
+const heroVideo = document.querySelector('.hero-video');
+
+if (heroVideo) {
+  heroVideo.muted = true;
+  const playHero = () => heroVideo.play().catch(() => {});
+
+  heroVideo.addEventListener('ended', () => {
+    heroVideo.currentTime = 0;
+    playHero();
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) playHero();
+  });
+
+  // autoplay blocked until the visitor interacts: start on the first tap
+  ['touchstart', 'click'].forEach(evt =>
+    document.addEventListener(evt, playHero, { once: true, passive: true })
+  );
+
+  playHero();
+}
+
 // Homepage calendar
 const calDays = document.getElementById('calDays');
 
