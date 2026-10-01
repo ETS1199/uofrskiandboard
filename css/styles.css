@@ -354,25 +354,6 @@ ul { list-style: none; }
 .split--photo-left > :first-child { justify-self: center; width: min(100%, 420px); }
 .split--tight { gap: clamp(1.5rem, 3vw, 2.5rem); }
 
-.justify-head {
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: clamp(1.25rem, 2.4vw, 1.875rem);
-  line-height: 1.25;
-  text-align: justify;
-  text-align-last: justify;
-  color: var(--accent);
-  margin-bottom: 1.5rem;
-}
-
-.click-me {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--accent);
-  margin-top: 0.75rem;
-}
-
 /* ===== TRIO (executives banner) ===== */
 .trio {
   display: grid;
@@ -708,8 +689,6 @@ ul { list-style: none; }
 
   .split { grid-template-columns: 1fr; }
   .split--photo-left > :first-child { width: min(100%, 320px); }
-
-  .justify-head { text-align: left; text-align-last: left; }
 
   .ftr-grid { grid-template-columns: 1fr; justify-items: center; }
   .ftr-mark, .ftr-social { grid-column: 1; }
