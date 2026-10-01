@@ -1,7 +1,7 @@
 /* ===================================================================
    UofR Ski and Board — structure modelled on the U of C club site:
    two-row nav top-left with a centred wordmark, full-bleed alternating
-   dark / cream / tint bands, a scrolling marquee strip, and a cream
+   dark / cream / tint bands, and a cream
    footer carrying the club logo.
    =================================================================== */
 
@@ -310,37 +310,6 @@ ul { list-style: none; }
   line-height: 1.2;
   max-width: 18ch;
   margin: 0 auto;
-}
-
-/* ===== MARQUEE ===== */
-.marquee {
-  background: var(--cream);
-  color: var(--dark);
-  overflow: hidden;
-  padding: 0.75rem 0;
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 30s linear infinite;
-}
-
-.marquee-track span {
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: clamp(1.75rem, 4.5vw, 3.25rem);
-  white-space: nowrap;
-  padding-right: 3rem;
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
 }
 
 /* ===== TWO-COLUMN SPLITS ===== */
