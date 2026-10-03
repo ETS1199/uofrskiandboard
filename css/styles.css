@@ -322,47 +322,168 @@ ul { list-style: none; }
 
 .split--photo-left > :first-child { justify-self: center; width: min(100%, 420px); }
 
-/* ===== TRIO (executives banner) ===== */
-.trio {
-  display: grid;
-  grid-template-columns: 1fr 0.7fr 1fr;
-  gap: clamp(1rem, 3vw, 2.5rem);
-  align-items: center;
-}
-
-/* ===== EXEC GROUPS ===== */
-.exec-group { margin-top: clamp(3rem, 6vw, 5rem); }
-
-.exec-group-head { text-align: center; margin-bottom: 2rem; }
-
-.exec-group-head .d2 { color: var(--accent); }
-
-.exec-group-sub {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--on-dark-soft);
-  margin-top: 0.4rem;
-}
-
-.exec-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: clamp(1rem, 2.5vw, 2rem);
-}
-
-.exec {
-  width: clamp(150px, 16vw, 200px);
-}
-
-.exec-name {
-  background: var(--tint);
+/* ===== EXECS: PECKING-ORDER TREE ===== */
+.exec-sky {
+  background: linear-gradient(to bottom, #cfe5f3 0%, #e9f2f4 55%, var(--cream) 100%);
   color: var(--on-light);
-  font-size: 0.75rem;
-  font-weight: 700;
+}
+
+.tree {
+  --w: clamp(68px, 11vw, 124px);   /* one exec's column width */
+  --gap: clamp(0.5rem, 2vw, 1.5rem);
+  --poop: #fffdf6;
+  position: relative;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.75rem, 4vw, 3rem);
+}
+
+/* the trunk */
+.tree::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--w) * 0.6);
+  bottom: 0;
+  left: 50%;
+  width: clamp(18px, 2.4vw, 30px);
+  transform: translateX(-50%);
+  background: linear-gradient(to right, #5a3418, #8a5a2e 40%, #6b4020);
+  border-radius: 6px 6px 0 0;
+}
+
+.tier { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
+
+.tier-row { display: flex; justify-content: center; gap: var(--gap); }
+
+/* the branch each tier sits on */
+.branch {
+  position: relative;
+  height: clamp(12px, 1.6vw, 18px);
+  width: calc(100% + var(--w) * 0.7);
+  margin: -4px 0 0.6rem;
+  background: linear-gradient(to bottom, #9a6a3a, #6b4020);
+  border-radius: 999px;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.18);
+}
+
+/* cut-log ring on the end */
+.branch::before {
+  content: '';
+  position: absolute;
+  right: -2px;
+  top: 50%;
+  width: clamp(14px, 1.9vw, 21px);
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, #e2b77d 0 30%, #b8834a 32% 55%, #e2b77d 57% 70%, #7a4a24 72%);
+}
+
+.exec-photo {
+  position: relative;
+  width: var(--w);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark);
+  color: var(--accent);
+  border: 3px solid #fff;
+  box-shadow: 0 3px 10px rgba(18, 58, 42, 0.18);
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: calc(var(--w) * 0.3);
+}
+
+.exec-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* droppings layer, heavier on every tier further down */
+.exec-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: var(--splats, none);
+}
+
+.exec-tag {
+  width: var(--w);
   text-align: center;
-  padding: 0.5rem 0.6rem;
-  border-radius: 0 0 4px 4px;
+  font-size: clamp(0.625rem, 1.1vw, 0.8125rem);
+  line-height: 1.25;
+  background: var(--cream);
+  border-radius: 6px;
+  padding: 0.35rem 0.25rem;
+  box-shadow: 0 1px 4px rgba(18, 58, 42, 0.12);
+}
+
+.exec-tag strong { display: block; font-weight: 700; }
+.exec-tag span { display: block; color: var(--on-light-soft); font-size: 0.9em; }
+
+/* drips hanging off soiled branches */
+.tier:not(.tier--1) .branch::after {
+  content: '';
+  position: absolute;
+  left: 8%;
+  right: 12%;
+  top: 40%;
+  height: var(--drip, 14px);
+  background:
+    radial-gradient(ellipse 5px 9px at 50% 30%, var(--poop) 95%, transparent) 0 0 / var(--drip-gap, 46px) 100% repeat-x;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.08));
+}
+
+/* droppings caked along the top of the lower branches */
+.tier--3 .branch { box-shadow: inset 0 3px 0 var(--poop), inset 0 -2px 0 rgba(0, 0, 0, 0.18); }
+.tier--4 .branch { box-shadow: inset 0 5px 0 var(--poop), inset 0 -2px 0 rgba(0, 0, 0, 0.18); }
+.tier--5 .branch { box-shadow: inset 0 7px 0 var(--poop), inset 0 -2px 0 rgba(0, 0, 0, 0.18); }
+
+.tier--2 { --drip: 10px; --drip-gap: 90px; }
+.tier--3 { --drip: 14px; --drip-gap: 44px; }
+.tier--4 { --drip: 18px; --drip-gap: 30px; }
+.tier--5 { --drip: 24px; --drip-gap: 20px; }
+
+.tier--2 .exec-photo {
+  --splats:
+    radial-gradient(circle at 34% 14%, var(--poop) 0 7%, transparent 7.5%),
+    radial-gradient(circle at 70% 26%, var(--poop) 0 4%, transparent 4.5%);
+}
+
+.tier--3 .exec-photo {
+  --splats:
+    radial-gradient(ellipse 34% 14% at 45% 0%, var(--poop) 0 100%, transparent 101%),
+    radial-gradient(ellipse 4% 12% at 30% 14%, var(--poop) 0 100%, transparent 101%),
+    radial-gradient(circle at 72% 30%, var(--poop) 0 6%, transparent 6.5%),
+    radial-gradient(circle at 22% 62%, var(--poop) 0 5%, transparent 5.5%),
+    radial-gradient(circle at 80% 72%, var(--poop) 0 4%, transparent 4.5%);
+}
+
+.tier--4 .exec-photo {
+  --splats:
+    radial-gradient(ellipse 60% 22% at 50% 0%, var(--poop) 0 100%, transparent 101%),
+    radial-gradient(ellipse 5% 16% at 24% 20%, var(--poop) 0 100%, transparent 101%),
+    radial-gradient(ellipse 4% 14% at 64% 22%, var(--poop) 0 100%, transparent 101%),
+    radial-gradient(circle at 84% 44%, var(--poop) 0 8%, transparent 8.5%),
+    radial-gradient(circle at 14% 56%, var(--poop) 0 7%, transparent 7.5%),
+    radial-gradient(circle at 70% 82%, var(--poop) 0 6%, transparent 6.5%),
+    radial-gradient(circle at 34% 88%, var(--poop) 0 5%, transparent 5.5%);
+}
+
+.tier--5 .exec-photo {
+  --splats:
+    radial-gradient(ellipse 80% 30% at 50% 0%, var(--poop) 0 100%, transparent 101%),
+    radial-gradient(ellipse 6% 22% at 18% 28%, var(--poop) 0 100%, transparent 101%),
+    radial-gradient(ellipse 5% 18% at 46% 30%, var(--poop) 0 100%, transparent 101%),
+    radial-gradient(ellipse 6% 24% at 78% 28%, var(--poop) 0 100%, transparent 101%),
+    radial-gradient(circle at 90% 54%, var(--poop) 0 10%, transparent 10.5%),
+    radial-gradient(circle at 8% 66%, var(--poop) 0 10%, transparent 10.5%),
+    radial-gradient(circle at 62% 70%, var(--poop) 0 6%, transparent 6.5%),
+    radial-gradient(ellipse 70% 18% at 50% 100%, var(--poop) 0 100%, transparent 101%);
 }
 
 /* ===== LISTS ===== */
@@ -575,8 +696,6 @@ ul { list-style: none; }
 @media (max-width: 900px) {
   .logo-grid, .logo-grid--4 { grid-template-columns: repeat(2, 1fr); }
   .photo-grid { columns: 2; }
-  .trio { grid-template-columns: 1fr; justify-items: center; }
-  .trio > * { max-width: 420px; width: 100%; }
 }
 
 @media (max-width: 760px) {
