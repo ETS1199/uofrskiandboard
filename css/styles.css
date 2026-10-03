@@ -220,6 +220,8 @@ ul { list-style: none; }
 .ph--portrait { aspect-ratio: 3 / 4; }
 .ph--square   { aspect-ratio: 1 / 1; }
 .ph--wide     { aspect-ratio: 16 / 9; }
+.ph--black    { background: #000; border: none; color: var(--on-dark); }
+.ph--black span { opacity: 0.85; }
 .ph--logo     { aspect-ratio: 3 / 2; background-color: #fff; color: #555; border-style: solid; border-color: rgba(0,0,0,0.1); }
 
 /* ===== HOME: FULL-SCREEN PHOTO HERO ===== */
