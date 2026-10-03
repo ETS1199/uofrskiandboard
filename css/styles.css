@@ -402,15 +402,6 @@ ul { list-style: none; }
 
 .exec-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
-/* droppings layer, heavier on every tier further down */
-.exec-photo::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: var(--splats, none);
-}
-
 .exec-tag {
   width: var(--w);
   text-align: center;
@@ -447,44 +438,6 @@ ul { list-style: none; }
 .tier--3 { --drip: 14px; --drip-gap: 44px; }
 .tier--4 { --drip: 18px; --drip-gap: 30px; }
 .tier--5 { --drip: 24px; --drip-gap: 20px; }
-
-.tier--2 .exec-photo {
-  --splats:
-    radial-gradient(circle at 34% 14%, var(--poop) 0 7%, transparent 7.5%),
-    radial-gradient(circle at 70% 26%, var(--poop) 0 4%, transparent 4.5%);
-}
-
-.tier--3 .exec-photo {
-  --splats:
-    radial-gradient(ellipse 34% 14% at 45% 0%, var(--poop) 0 100%, transparent 101%),
-    radial-gradient(ellipse 4% 12% at 30% 14%, var(--poop) 0 100%, transparent 101%),
-    radial-gradient(circle at 72% 30%, var(--poop) 0 6%, transparent 6.5%),
-    radial-gradient(circle at 22% 62%, var(--poop) 0 5%, transparent 5.5%),
-    radial-gradient(circle at 80% 72%, var(--poop) 0 4%, transparent 4.5%);
-}
-
-.tier--4 .exec-photo {
-  --splats:
-    radial-gradient(ellipse 60% 22% at 50% 0%, var(--poop) 0 100%, transparent 101%),
-    radial-gradient(ellipse 5% 16% at 24% 20%, var(--poop) 0 100%, transparent 101%),
-    radial-gradient(ellipse 4% 14% at 64% 22%, var(--poop) 0 100%, transparent 101%),
-    radial-gradient(circle at 84% 44%, var(--poop) 0 8%, transparent 8.5%),
-    radial-gradient(circle at 14% 56%, var(--poop) 0 7%, transparent 7.5%),
-    radial-gradient(circle at 70% 82%, var(--poop) 0 6%, transparent 6.5%),
-    radial-gradient(circle at 34% 88%, var(--poop) 0 5%, transparent 5.5%);
-}
-
-.tier--5 .exec-photo {
-  --splats:
-    radial-gradient(ellipse 80% 30% at 50% 0%, var(--poop) 0 100%, transparent 101%),
-    radial-gradient(ellipse 6% 22% at 18% 28%, var(--poop) 0 100%, transparent 101%),
-    radial-gradient(ellipse 5% 18% at 46% 30%, var(--poop) 0 100%, transparent 101%),
-    radial-gradient(ellipse 6% 24% at 78% 28%, var(--poop) 0 100%, transparent 101%),
-    radial-gradient(circle at 90% 54%, var(--poop) 0 10%, transparent 10.5%),
-    radial-gradient(circle at 8% 66%, var(--poop) 0 10%, transparent 10.5%),
-    radial-gradient(circle at 62% 70%, var(--poop) 0 6%, transparent 6.5%),
-    radial-gradient(ellipse 70% 18% at 50% 100%, var(--poop) 0 100%, transparent 101%);
-}
 
 /* ===== LISTS ===== */
 .bullets { padding-left: 1.25rem; }
