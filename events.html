@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Events and Trips — UofR Ski and Board</title>
-  <link rel="stylesheet" href="css/styles.css?v=15" />
+  <link rel="stylesheet" href="css/styles.css?v=16" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="images/logo/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="images/logo/icon-192.png" />
@@ -47,17 +47,17 @@
     <div class="wrap wrap--narrow center">
       <h1 class="d1 upper">2026/27 events and trips</h1>
       <p class="lede" style="margin: 1.5rem 0;">We&rsquo;ve got a lot in store for you this upcoming season! Stay tuned for the trip and event announcements we&rsquo;ll be making this season and don&rsquo;t miss your chance to join in on the fun!</p>
-      <p class="d4" style="margin-bottom: 1.25rem;">things to look forward to in the 2026/27 season:</p>
-      <ul class="bullets bullets--center">
-          <li>social at social</li>
-          <li>day trip</li>
-          <li>weekender</li>
-          <li>Halloween party</li>
-          <li>second weekender</li>
-          <li>big mountain trip</li>
-          <li>end of season party</li>
-          <li>and so much more throughout the season!!</li>
-      </ul>
+      <div class="cal" id="cal" style="margin-top: clamp(2rem, 4vw, 3rem); text-align: left;">
+        <div class="cal-head">
+          <button class="cal-arrow" id="calPrev" type="button" aria-label="Previous month">&larr;</button>
+          <h3 class="cal-title" id="calTitle" aria-live="polite"></h3>
+          <button class="cal-arrow" id="calNext" type="button" aria-label="Next month">&rarr;</button>
+        </div>
+        <div class="cal-grid cal-dow" aria-hidden="true">
+          <span>sun</span><span>mon</span><span>tue</span><span>wed</span><span>thu</span><span>fri</span><span>sat</span>
+        </div>
+        <div class="cal-grid cal-days" id="calDays"></div>
+      </div>
     </div>
   </section>
 
