@@ -321,7 +321,6 @@ ul { list-style: none; }
 }
 
 .split--photo-left > :first-child { justify-self: center; width: min(100%, 420px); }
-.split--tight { gap: clamp(1.5rem, 3vw, 2.5rem); }
 
 /* ===== TRIO (executives banner) ===== */
 .trio {
@@ -365,47 +364,6 @@ ul { list-style: none; }
   padding: 0.5rem 0.6rem;
   border-radius: 0 0 4px 4px;
 }
-
-/* ===== FAQ ACCORDION ===== */
-.faq { border-top: 1px solid currentColor; }
-
-.faq details {
-  border-bottom: 1px solid currentColor;
-}
-
-.faq summary {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.9rem 0;
-  cursor: pointer;
-  font-family: var(--display);
-  font-weight: 500;
-  font-size: 1rem;
-  list-style: none;
-}
-
-.faq summary::-webkit-details-marker { display: none; }
-
-.faq summary::after {
-  content: '+';
-  font-family: var(--body);
-  font-size: 1.25rem;
-  line-height: 1;
-  opacity: 0.7;
-}
-
-.faq details[open] summary::after { content: '\2013'; }
-
-.faq details p {
-  padding: 0 0 1.1rem;
-  font-size: 0.9375rem;
-  color: var(--on-light-soft);
-  max-width: 46rem;
-}
-
-.band--dark .faq details p { color: var(--on-dark-soft); }
 
 /* ===== LISTS ===== */
 .bullets { padding-left: 1.25rem; }
