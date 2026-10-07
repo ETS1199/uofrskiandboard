@@ -195,6 +195,18 @@ ul { list-style: none; }
 
 .link-ul:hover { color: var(--accent); }
 
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  background: var(--accent);
+  color: var(--dark);
+  font-weight: 700;
+  border-radius: 999px;
+  transition: background 0.15s ease;
+}
+
+.btn:hover { background: var(--on-dark); }
+
 /* ===== PLACEHOLDERS (swap for real photos) ===== */
 .ph {
   display: flex;
