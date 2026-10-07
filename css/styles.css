@@ -487,6 +487,8 @@ ul { list-style: none; }
   line-height: 1.45;
 }
 
+.logo-card p + p { margin-top: 0.4rem; }
+
 .band--light .logo-card p { color: var(--on-light-soft); }
 
 /* ===== RECAPS PHOTOS ===== */
