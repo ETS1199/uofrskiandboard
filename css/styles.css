@@ -441,7 +441,7 @@ ul { list-style: none; }
 .tier--4 { --drip: 18px; --drip-gap: 30px; }
 .tier--5 { --drip: 24px; --drip-gap: 20px; }
 
-/* ===== LOGO GRIDS (lift tickets / sponsors) ===== */
+/* ===== LOGO GRIDS (sponsors) ===== */
 .logo-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
