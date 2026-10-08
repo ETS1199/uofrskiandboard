@@ -455,12 +455,17 @@ ul { list-style: none; }
 
 /* ===== LOGO GRIDS (sponsors) ===== */
 .logo-grid {
+  --gap: clamp(1.5rem, 4vw, 3.25rem);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(1.5rem, 4vw, 3.25rem);
+  gap: var(--gap);
 }
 
 .logo-grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+/* like --4, but a short last row sits centred instead of hugging the left */
+.logo-grid--center { --cols: 4; display: flex; flex-wrap: wrap; justify-content: center; }
+.logo-grid--center > * { width: calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols)); }
 
 .logo-card { text-align: center; }
 
@@ -645,6 +650,7 @@ ul { list-style: none; }
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
   .logo-grid, .logo-grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .logo-grid--center { --cols: 2; }
   .photo-grid { columns: 2; }
 }
 
@@ -693,7 +699,7 @@ ul { list-style: none; }
 
 @media (max-width: 520px) {
   .logo-grid { grid-template-columns: 1fr; }
-  .logo-grid--4 { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .logo-grid--4 { grid-template-columns: repeat(2, 1fr); --gap: 1rem; }
   .photo-grid { columns: 1; }
   .cal-day { padding: 0.3rem; font-size: 0.8125rem; }
 }
