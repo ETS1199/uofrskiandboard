@@ -647,6 +647,22 @@ ul { list-style: none; }
 
 .cal-day--today span { border-bottom: 2px solid var(--accent); }
 
+.cal-day--event { background: rgba(201, 162, 39, 0.18); border-color: rgba(201, 162, 39, 0.5); }
+.cal-day--today.cal-day--event { background: var(--dark); }
+
+.cal-event {
+  display: block;
+  margin-top: 0.3rem;
+  font-family: var(--body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.cal-list { list-style: none; margin-top: clamp(1.75rem, 3vw, 2.5rem); padding: 0; }
+.cal-list li { padding: 0.85rem 0; border-top: 1px solid rgba(18, 58, 42, 0.14); font-weight: 600; }
+.cal-list-date { display: block; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-deep); }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
   .logo-grid, .logo-grid--4 { grid-template-columns: repeat(2, 1fr); }
@@ -702,4 +718,5 @@ ul { list-style: none; }
   .logo-grid--4 { grid-template-columns: repeat(2, 1fr); --gap: 1rem; }
   .photo-grid { columns: 1; }
   .cal-day { padding: 0.3rem; font-size: 0.8125rem; }
+  .cal-event { display: none; }
 }

@@ -44,10 +44,23 @@ if (heroVideo) {
 // Homepage calendar
 const calDays = document.getElementById('calDays');
 
+// dates are inclusive; leave `end` off for one-day events
+const EVENTS = [
+  { start: '2026-11-06', title: 'Party at Blancos' },
+  { start: '2027-02-15', title: 'Party at Copperhead' },
+  { start: '2027-02-17', end: '2027-02-20', title: 'Big ski trip to Banff' },
+];
+
+const toDate = (iso) => {
+  const [y, m, d] = iso.split('-').map(Number);
+  return new Date(y, m - 1, d);
+};
+
 if (calDays) {
   const title = document.getElementById('calTitle');
   const today = new Date();
   let view = new Date(today.getFullYear(), today.getMonth(), 1);
+  const events = EVENTS.map((e) => ({ ...e, from: toDate(e.start), to: toDate(e.end || e.start) }));
 
   const render = () => {
     const year = view.getFullYear();
@@ -71,6 +84,17 @@ if (calDays) {
         cell.classList.add('cal-day--today');
       }
       cell.innerHTML = `<span>${d}</span>`;
+      const date = new Date(year, month, d);
+      events.filter((e) => date >= e.from && date <= e.to).forEach((e) => {
+        cell.classList.add('cal-day--event');
+        // label the first day, and the start of each week a multi-day event runs into
+        if (+date === +e.from || date.getDay() === 0) {
+          const label = document.createElement('small');
+          label.className = 'cal-event';
+          label.textContent = e.title;
+          cell.appendChild(label);
+        }
+      });
       calDays.appendChild(cell);
     }
   };
@@ -86,6 +110,27 @@ if (calDays) {
   });
 
   render();
+
+  const list = document.getElementById('calList');
+  if (list) {
+    const fmt = (d) => d.toLocaleString('en-CA', { month: 'long', day: 'numeric', year: 'numeric' });
+    const startOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    events
+      .filter((e) => e.to >= startOfToday)
+      .sort((a, b) => a.from - b.from)
+      .forEach((e) => {
+        const li = document.createElement('li');
+        const sameMonth = e.from.getMonth() === e.to.getMonth();
+        const when = !e.end
+          ? fmt(e.from)
+          : sameMonth
+            ? `${e.from.toLocaleString('en-CA', { month: 'long', day: 'numeric' })}&ndash;${e.to.getDate()}, ${e.to.getFullYear()}`
+            : `${e.from.toLocaleString('en-CA', { month: 'long', day: 'numeric' })}&ndash;${fmt(e.to)}`;
+        li.innerHTML = `<span class="cal-list-date">${when}</span>`;
+        li.append(e.title);
+        list.appendChild(li);
+      });
+  }
 }
 
 // Scroll-triggered fade-in
